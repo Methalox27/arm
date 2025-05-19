@@ -1,0 +1,12 @@
+         AREA MYCODE, CODE, READONLY
+ENTRY;
+START
+		MOV R0, #7
+		MOV R1, #1
+		MOV R2, #1
+FACT
+		MUL R2, R0, R2
+		SUBS R0, R0, #1
+		CMP R0, #1
+		BGT FACT
+		END
