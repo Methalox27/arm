@@ -1,21 +1,17 @@
-           AREA MYCODE,CODE,READONLY
-ENTRY
-START
-     LDR R0,=0XFCA67590
-	 MOV R1,#0
-	 MOV R2,#0
-	 MOV R3,#32
+	area mycode, code, readonly
+enter
+	ldr r0,=0x40000000
+	ldr r0,[r0]
 	
+	mov r1,#0
+	mov r2,#0
+	mov r3,#32
 	
 COUNTER
-      LSRS R0,R0,#1
-	  ADC R1,R1,#0
-	  ADDCC R2,R2,#1
-	  SUBS R3,R3,#1
-	  BNE COUNTER
-
-	  
-	  
-S B S
-    NOP 
-    END
+	tst r0,#1
+	addne r1,r1,#1
+	addeq r2,r2,#1
+	lsr r0,r0,#1
+	subs r3,r3,#32
+	bne COUNTER
+	end
