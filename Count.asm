@@ -12,6 +12,6 @@ COUNTER
 	addne r1,r1,#1
 	addeq r2,r2,#1
 	lsr r0,r0,#1
-	subs r3,r3,#32
+	subs r3,r3,#1
 	bne COUNTER
 	end
